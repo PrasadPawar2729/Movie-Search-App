@@ -1,8 +1,30 @@
-# React + Vite
+# Movie Search Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple movie search application that uses the OMDB API to fetch and display movie data. It allows users to search for movies, view their details, and browse popular movies.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Repository**
+You can find the project repository here:  
+[Movie Search App](https://github.com/PrasadPawar2729/Movie-Search-App.git)
+
+---
+
+## **Technologies Used**
+- **Frontend**: React.js with Vite
+- **Backend**: OMDB API (No custom backend required)
+- **Styling**: Basic CSS
+
+---
+
+## **Getting Started**
+
+### **Prerequisites**
+1. **npm** or **yarn** as a package manager.
+2. A valid API key from [OMDB API](https://www.omdbapi.com/).
+
+### **Installation**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/PrasadPawar2729/Movie-Search-App.git
+   cd Movie-Search-App
