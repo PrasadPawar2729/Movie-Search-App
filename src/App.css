@@ -1,4 +1,4 @@
-/* Base Styles */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -25,8 +25,11 @@ header {
   width: 100%;
   max-width: 600px;
   margin: 1rem auto;
+  border-radius: 20%;
+  margin-top:10px;
   display: flex;
   gap: 0.5rem;
+  
 }
 
 .search-bar input {
