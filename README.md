@@ -13,7 +13,7 @@ You can find the project repository here:
 ## Deployment
 The project is live and can be accessed at the link below:
 
-[Click here to view the live project](https://your-deployment-link.com)
+[Click here to view the live project](hhttps://movie-search-app-36y8.vercel.app/)
 
 
 ---
