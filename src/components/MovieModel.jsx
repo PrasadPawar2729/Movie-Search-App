@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const MovieModal = ({ movie, onClose }) => {
   const [details, setDetails] = useState({});
   const API_KEY = '40b7c60d';
-  const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+  const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
   useEffect(() => {
     const fetchMovieDetails = async () => {

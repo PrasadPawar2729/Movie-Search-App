@@ -11,7 +11,7 @@ const App = () => {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const API_KEY = '40b7c60d';
-  const API_URL = `http://www.omdbapi.com/?apikey=${API_KEY}`;
+  const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
   // Fetch popular movies
   useEffect(() => {
