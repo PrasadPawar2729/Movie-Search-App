@@ -2,13 +2,8 @@ import React from 'react';
 
 const MovieList = ({ movies, onMovieSelect }) => {
   return (
-    <div
-  style={{
-    display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
-    gap: '1rem',
-    padding: '1rem',
-  }}
+<div
+  className="responsive-grid"
 >
   {movies.map((movie) => (
     <div
@@ -33,12 +28,13 @@ const MovieList = ({ movies, onMovieSelect }) => {
           objectFit: 'cover',
         }}
       />
-      <h4 style={{ margin: '0.5rem 0 0.2rem', fontSize: '1rem' }}>
-        {movie.Title}
-      </h4>
-      <p style={{ margin: '0', fontSize: '0.9rem', color: '#666' }}>
-        {movie.Year}
-      </p>
+   <h4 style={{ margin: '0.5rem 0 0.2rem', fontSize: '1rem', color: '#4a90e2' }}>
+  {movie.Title}
+</h4>
+<p style={{ margin: '0', fontSize: '0.9rem', color: '#8c8c8c' }}>
+  {movie.Year}
+</p>
+
     </div>
   ))}
 </div>

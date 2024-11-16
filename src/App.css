@@ -1,79 +1,101 @@
-
+/* Base Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
 }
 
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Responsive Header */
 header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
-  background: #333;
-  color: #fff;
+  background-color: #282c34;
+  color: white;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-/* Search Bar */
+/* Responsive SearchBar */
 .search-bar {
-  padding: 1rem;
-  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 1rem auto;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .search-bar input {
+  flex: 1;
   padding: 0.5rem;
-  width: 80%;
-  max-width: 500px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
 }
 
-/* Movie List */
+.search-bar button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Responsive MovieList */
 .movie-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
-  padding: 1rem;
-  justify-content: center;
+  margin: 1rem 0;
 }
 
 .movie-card {
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 0.5rem;
-  background: #fff;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-align: center;
-}
-
-.movie-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .movie-card img {
   width: 100%;
-  border-radius: 4px;
+  height: auto;
 }
 
-.movie-card h4 {
-  margin: 0.5rem 0 0.2rem;
-  font-size: 1rem;
+.movie-card .details {
+  padding: 1rem;
+  text-align: center;
 }
 
-.movie-card p {
-  margin: 0;
-  font-size: 0.9rem;
-  color: #666;
+/* Responsive MovieModal */
+.movie-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
-/* Modal */
+.movie-modal img {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.movie-modal .content {
+  margin-top: 1rem;
+  color:black
+}
+
+/* Overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -81,58 +103,40 @@ header h1 {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  z-index: 999;
 }
 
-.modal-content {
-  background: #fff;
-  padding: 1.5rem;
-  width: 80%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+/* Media Queries */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .movie-modal {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default: 4 columns */
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.modal-content h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
+@media (max-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr); /* Medium screens: 2 columns */
+  }
 }
 
-.modal-content p {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-}
-
-.modal-content button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background: #333;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.modal-content button:hover {
-  background: #555;
-}
-
-/* Responsive Design */
 @media (max-width: 600px) {
-  .movie-list {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
-
-  .search-bar input {
-    width: 90%;
-  }
-
-  .modal-content {
-    width: 90%;
+  .responsive-grid {
+    grid-template-columns: 1fr; /* Small screens: 1 column */
   }
 }

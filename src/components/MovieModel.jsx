@@ -37,13 +37,37 @@ const MovieModal = ({ movie, onClose }) => {
           borderRadius: '10px',
         }}
       >
-        <h2>{details.Title}</h2>
-        <p>{details.Plot}</p>
-        <p><strong>Genre:</strong> {details.Genre}</p>
-        <p><strong>Ratings:</strong> {details.imdbRating}</p>
-        <button onClick={onClose} style={{ marginTop: '1rem' }}>
-          Close
-        </button>
+       <h2 style={{ color: '#333', fontSize: '1.8rem', marginBottom: '0.5rem' }}>
+  {details.Title}
+</h2>
+<p style={{ color: '#555', fontSize: '1rem', lineHeight: '1.5', marginBottom: '1rem' }}>
+  {details.Plot}
+</p>
+<p style={{ color: '#444', fontSize: '1rem', marginBottom: '0.5rem' }}>
+  <strong style={{ color: '#333', fontWeight: 'bold' }}>Genre:</strong> {details.Genre}
+</p>
+<p style={{ color: '#444', fontSize: '1rem', marginBottom: '0.5rem' }}>
+  <strong style={{ color: '#333', fontWeight: 'bold' }}>Ratings:</strong> {details.imdbRating}
+</p>
+<button
+  onClick={onClose}
+  style={{
+    marginTop: '1rem',
+    padding: '0.5rem 1rem',
+    fontSize: '1rem',
+    color: '#fff',
+    backgroundColor: '#4a90e2',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    transition: 'background-color 0.3s ease',
+  }}
+  onMouseOver={(e) => (e.target.style.backgroundColor = '#357ABD')}
+  onMouseOut={(e) => (e.target.style.backgroundColor = '#4a90e2')}
+>
+  Close
+</button>
+
       </div>
     </div>
   );

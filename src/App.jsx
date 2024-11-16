@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './app.css'
+import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import MovieList from './components/MovieList';
@@ -39,7 +39,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="app-container">
       <Header />
       <SearchBar searchTerm={searchTerm} onSearch={handleSearch} />
       <MovieList movies={movies} onMovieSelect={handleMovieSelect} />
