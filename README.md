@@ -10,6 +10,13 @@ You can find the project repository here:
 
 ---
 
+## Deployment
+The project is live and can be accessed at the link below:
+
+[Click here to view the live project](https://your-deployment-link.com)
+
+
+---
 ## **Technologies Used**
 - **Frontend**: React.js with Vite
 - **Backend**: OMDB API (No custom backend required)
