@@ -8,32 +8,65 @@ import MovieModal from './components/MovieModel';
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const API_KEY = '40b7c60d';
   const API_URL = `https://www.omdbapi.com/?apikey=${API_KEY}`;
 
-  // Fetch popular movies
+  
   useEffect(() => {
     fetchMovies('popular');
   }, []);
 
+  
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500); 
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchTerm]);
+
+  // Fetch movies whenever debouncedSearchTerm changes
+  useEffect(() => {
+    if (debouncedSearchTerm) {
+      fetchMovies(debouncedSearchTerm);
+    } else {
+      fetchMovies('popular'); 
+    }
+  }, [debouncedSearchTerm]);
+
+  // Fetch movies from the API
   const fetchMovies = async (query) => {
     const url = query === 'popular' ? `${API_URL}&s=batman` : `${API_URL}&s=${query}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    if (data.Search) setMovies(data.Search);
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.Search) {
+        setMovies(data.Search);
+      } else {
+        setMovies([]); 
+      }
+    } catch (error) {
+      console.error('Error fetching movies:', error);
+      setMovies([]); 
+    }
   };
 
+  
   const handleSearch = (term) => {
-    setSearchTerm(term);
-    fetchMovies(term);
+    setSearchTerm(term); 
   };
 
+  
   const handleMovieSelect = (movie) => {
     setSelectedMovie(movie);
   };
 
+  
   const handleModalClose = () => {
     setSelectedMovie(null);
   };
